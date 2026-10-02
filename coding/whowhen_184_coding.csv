@@ -1,0 +1,185 @@
+row_id,mistake_reason,coder1_label,coder2_label,agree,consensus_label,resolution_note
+0,The agent fails to collect price data for the daily tickets and season passes for California's Great America in 2024.,OTHER,VERIFICATION,False,OTHER,"Failure to collect data is underspecified; no explicit verification, tool, or planning mechanism is stated."
+1,The Python code is incorrect.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Frozen coding guide treats generic incorrect code as TOOL_FORMAT.
+2,The plan to solve the problem is incorrect.,PLAN,PLAN,True,PLAN,
+3,"The agent made an error in the simulation implementation, resulting in an incorrect outcome.",TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Simulation implementation error is an implementation/code defect; guide default is TOOL_FORMAT.
+4,"The agent assumes that the video is available for download, exhausting the step limit.",PLAN,PLAN,True,PLAN,
+5,"The script failed to locate the C++ code on the webpage because it was not targeting the correct elements. Despite multiple attempts to extract the code, the specific structure or class of the C++ content was overlooked.",GROUNDING,GROUNDING,True,GROUNDING,
+6,The expert misinterprets the output of the OCR function and provides the simplified fractions in an incorrect format.,OBS_MISREAD,OBS_MISREAD,True,OBS_MISREAD,
+7,"The code is incorrect, as executing it returns no output.",TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Incorrect code producing no output is coded as TOOL_FORMAT rather than tool-level execution failure.
+8,"The reasoning provided by Tizin_Translation_Expert is incorrect, as the accusative case should be used instead of the nominative case when expressing oneself.",PLAN,OTHER,False,OTHER,"This is a grammatical/content reasoning error, not a task-planning/decomposition failure."
+9,The agent hallucinates the video ID and calls the tool with placeholder data. The task is not attempted.,GROUNDING,GROUNDING,True,GROUNDING,
+10,The code is wrong.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Frozen coding guide treats generic wrong code as TOOL_FORMAT.
+11,The AnimalBehavior_Expert provides no useful information.,GIVE_UP,GIVE_UP,True,GIVE_UP,
+12,"The Paintball_Expert provides incorrect addresses for karting tracks and paintball venues in Cologne, Germany. The expert should take the necessary steps to gather accurate information. These inaccuracies result in the failure of subsequent processes and exhaust the step limit.",GROUNDING,GROUNDING,True,GROUNDING,
+13,"The agent made a mistake in rounding the calculated time to the nearest 1,000 hours. The calculated time was approximately 16,788.35 hours, which should have been rounded to 17,000 hours. However, the agent incorrectly rounded the value to 16,000 hours instead.",OTHER,OTHER,True,OTHER,
+14,"The code calls the arxiv_search tool; however, using other tools, such as perform_web_search, would be more appropriate because arXiv is primarily academically oriented.",TOOL_SELECT,TOOL_SELECT,True,TOOL_SELECT,
+15,Made an incorrect assumption that the PDF file was available and accessible.,PLAN,PLAN,True,PLAN,
+16,The agent failed to locate the correct URL for the dataset from the USGS Nonindigenous Aquatic Species database.,TOOL_EXEC,TOOL_EXEC,True,TOOL_EXEC,
+17,The expert failed to identify the correct title of the first paper authored by Pietro Murano.,GROUNDING,GROUNDING,True,GROUNDING,
+18,The code provided by the BingAPI_Expert is incorrect.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Frozen coding guide treats generic incorrect code as TOOL_FORMAT.
+19,"The conversation did not verify the exact recycling rate from the Wikipedia link, which was a crucial step in validating the total amount of money. Assumptions based on general knowledge were made instead of confirming the specific rate from Wikipedia.",VERIFICATION,VERIFICATION,True,VERIFICATION,
+20,"The step assumed the extracted population value (56,583) was the 2020 estimate without verifying its accuracy or time frame, leading to an incorrect interpretation.",VERIFICATION,VERIFICATION,True,VERIFICATION,
+21,"The agent assumes the existence of the file houston_weather_june_2020_2023.csv, which is not provided in the task. The agent should search for the data source and create the file before proceeding with the analysis.",PLAN,PLAN,True,PLAN,
+22,The agent wrote incorrect code to calculate the desired value.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Incorrect code used to calculate the value; code defect maps to TOOL_FORMAT under the guide.
+23,The answer provided by Cubing_Expert was incorrect.,OTHER,UNMAPPABLE,False,UNMAPPABLE,Only says the answer is incorrect; mechanism cannot be inferred without guessing.
+24,"The expert wrote code with bugs, leading the following experts to follow the same method for extracting winner information in an incorrect way.",TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Explicit code bugs are implementation defects; downstream propagation does not change the source failure.
+25,"The price in this Python program is not the actual price, yet the Verification_Expert directly used it for calculation.",VERIFICATION,VERIFICATION,True,VERIFICATION,
+26,"The expert wrote code with bugs multiple times, leading to the exhaustion of the step limits.",LOOP,LOOP,True,LOOP,
+27,The expert made a factual error. Thriller is not a song but an album.,GROUNDING,GROUNDING,True,GROUNDING,
+28,The list of films provided by the Filmography_Expert is incorrect.,GROUNDING,GROUNDING,True,GROUNDING,
+29,The code provided by the Verification_Expert is unreasonable.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Unreasonable/incorrect code is mapped to TOOL_FORMAT under the guide's code-error default.
+30,"The conversion process from the Babylonian number system to decimal numbers is flawed, which would result in an incorrect calculation.",PLAN,PLAN,True,PLAN,
+31,"The agent fabricated the population figures for Seattle and Colville, resulting in an incorrect calculation of the population difference.",GROUNDING,GROUNDING,True,GROUNDING,
+32,"The agent incorrectly assumes that there are 20 blocks per mile. According to available sources, in Chicago, one mile consists of 16 east-west blocks or 8 north-south blocks.",GROUNDING,GROUNDING,True,GROUNDING,
+33,The agent provided information that is completely irrelevant to the problems.,OTHER,OTHER,True,OTHER,
+34,The proposed method to solve the problem is incorrect because no Python code is provided.,PLAN,PLAN,True,PLAN,
+35,"The expert does not verify the schedule; instead, it merely assumes that the schedule is correct.",VERIFICATION,VERIFICATION,True,VERIFICATION,
+36,The agent directly reaches a conclusion without taking any actual actions.,GIVE_UP,VERIFICATION,False,VERIFICATION,The agent concludes without taking evidentiary actions; this is skipped verification rather than premature abandonment.
+37,"Instead of browsing the web, the agent fabricates the process of data collection and verification.",GROUNDING,GROUNDING,True,GROUNDING,
+38,"The Verification_Expert fails to identify issues with other agents, namely the Fitness_Expert and Local_Knowledge_Expert, who are not providing accurate information. These agents should utilize tools such as Python to obtain the correct data.",COORDINATION,VERIFICATION,False,VERIFICATION,A Verification_Expert failed to detect inaccurate outputs from other agents; the decisive failure is missed verification.
+39,"The WomenInComputerScienceHistory_Expert did not extract the correct information. The end year should be 2017, not 2022.",GROUNDING,GROUNDING,True,GROUNDING,
+40,The code provided by DataExtraction_Expert is incorrect. Executing the code did not yield the correct information.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Incorrect code yielding incorrect information maps to TOOL_FORMAT.
+41,The code provided by FinancialData_Expert is incorrect.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Frozen coding guide treats generic incorrect code as TOOL_FORMAT.
+42,The expert did not perform any verifications and instead directly gave the conclusion.,VERIFICATION,VERIFICATION,True,VERIFICATION,
+43,The Culinary_Expert incorrectly included 'salt' as an ingredient and misinterpreted 'fresh strawberries' as 'ripe strawberries' from the transcription.,OBS_MISREAD,OBS_MISREAD,True,OBS_MISREAD,
+44,The expert directly reached a conclusion without further verifying the search results. The OpenCV contribution list is incomplete.,VERIFICATION,VERIFICATION,True,VERIFICATION,
+45,Give the wrong final answer and directly reach an incorrect conclusion.,VERIFICATION,VERIFICATION,True,VERIFICATION,
+46,The agent made an error in identifying the first place mentioned by name in the Book of Esther (NIV). It incorrectly identified 'Susa' as the first place mentioned.,GROUNDING,GROUNDING,True,GROUNDING,
+47,The question is not related to Python. He misunderstood the problem and failed to solve it.,PLAN,PLAN,True,PLAN,
+48,Using YouTube tools is more appropriate.,TOOL_SELECT,TOOL_SELECT,True,TOOL_SELECT,
+49,The assistant provides an incorrect plan in response to an inaccurate question.,PLAN,PLAN,True,PLAN,
+50,"The expert uses placeholders in the code to fetch data from an API, resulting in errors due to missing actual values.",TOOL_FORMAT,TOOL_FORMAT,True,TOOL_FORMAT,
+51,"The code failed to handle edge cases in the 'Street Address' data, leading to an incomplete and inaccurate count of even-numbered addresses.",TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Failure to handle edge cases is an implementation/code defect.
+52,"Incorrectly identified the background headstone in the photo of Dastardly Mash as Crème Brulee, leading to the extraction of the wrong last line of the rhyme.",GROUNDING,GROUNDING,True,GROUNDING,
+53,The experts provide factual inaccuracies.,GROUNDING,GROUNDING,True,GROUNDING,
+54,The code is incorrect because it did not import the perform_web_search function.,TOOL_FORMAT,TOOL_FORMAT,True,TOOL_FORMAT,
+55,The expert should continue examining the search results for the remaining board members to finalize the findings.,GIVE_UP,GIVE_UP,True,GIVE_UP,
+56,The code is incorrect because it attempts to extract columns that do not exist.,TOOL_FORMAT,GROUNDING,False,TOOL_FORMAT,Attempting to access nonexistent columns is a schema/implementation error.
+57,"The agent wrote incorrect code twice, exhausting the interaction limits.",LOOP,LOOP,True,LOOP,
+58,"The agent made a logical error in reasoning about scenario 2. If there is at least one vampire, then the statement 'At least one of us is a human,' made by vampires, would be true and would lead to a contradiction.",PLAN,OTHER,False,OTHER,Logical reasoning error is not clearly a planning/decomposition failure under the frozen classes.
+59,The code is wrong,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Frozen coding guide treats generic wrong code as TOOL_FORMAT.
+60,The agent starts by generating a simulated dataset and then processes the data to identify the country with the least number of athletes. It should search the web for real historical data.,GROUNDING,GROUNDING,True,GROUNDING,
+61,The code is not appropriate for the task.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Code inappropriate for the task is too vague for a more specific mechanism; guide default for code defects is TOOL_FORMAT.
+62,"The agent should use Python to obtain the website content and extract the chapter numbers quoted in the titles of the paintings. Instead, it is suggested to manually extract the chapter numbers from the painting titles.",TOOL_SELECT,TOOL_SELECT,True,TOOL_SELECT,
+63,"The code provided by DataVerification_Expert is not working, resulting in the failure of execution.",TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,"The code is stated to be non-working; the failure is attributed to the code, not to an external tool/service."
+64,The Verification_Expert provided incorrect code to solve the task.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Frozen coding guide treats generic incorrect code as TOOL_FORMAT.
+65,The agent uses its internal knowledge to list the stops on the Franklin-Foxboro line instead of searching for the most accurate and up-to-date information available as of May 2023.,GROUNDING,VERIFICATION,False,VERIFICATION,The agent relied on internal knowledge instead of checking current May-2023 information.
+66,"The agent makes an incorrect assumption that the total number of articles is 1,000. However, the exact number of articles published by Nature in 2020 is not provided in the question. The agent should have used the exact number of articles to accurately calculate the number of incorrect papers.",PLAN,VERIFICATION,False,VERIFICATION,The agent used an assumed article count instead of obtaining/checking the exact value before calculation.
+67,The code provided by SpeciesSightingsData_Expert is incorrect.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Frozen coding guide treats generic incorrect code as TOOL_FORMAT.
+68,The code is incorrect for the task.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Frozen coding guide treats generic code-incorrect-for-task cases as TOOL_FORMAT absent a more specific mechanism.
+69,"The expert provided the setting as 'INT. CASTLE BEDROOM' instead of the correct setting, 'THE CASTLE.'",GROUNDING,GROUNDING,True,GROUNDING,
+70,"The task description and focus were unrelated to the actual question of identifying cities based on university locations. The debugging effort focused on an irrelevant issue, diverting attention from solving the actual task.",PLAN,PLAN,True,PLAN,
+71,"The verification process is incorrect. It should provide the most relevant link; instead, it provides a summary of the search results.",VERIFICATION,VERIFICATION,True,VERIFICATION,
+72,"The expert should not use OCR, and analyzing data is not the responsibility of the Validation_Expert, leading to the exhaustion of step limits.",COORDINATION,COORDINATION,True,COORDINATION,
+73,"The Verification_Expert does not question the 0% result, which is highly unusual. It should take responsibility for further verifying the outcome and raising concerns with other agents.",COORDINATION,VERIFICATION,False,VERIFICATION,The Verification_Expert failed to question and re-check an anomalous 0% result.
+74,The agent incorrectly assumed the polygon to be a regular hexagon.,PLAN,PLAN,True,PLAN,
+75,"The Verification_Expert generates an inaccurate summary of the search results and overlooks the original query, which specifies that the recommendation must come from at least three different individuals with children. By failing to consider children as a prerequisite, this oversight ultimately results in the failure of the task.",OBS_MISREAD,MEMORY,False,MEMORY,"The agent overlooked an explicit prerequisite from the original query, fitting forgotten/omitted constraint."
+76,"The information provided initially is incorrect, leading to an incorrect conclusion.",GROUNDING,GROUNDING,True,GROUNDING,
+77,"The agent begins using placeholder values in the code, which results in failure.",TOOL_FORMAT,TOOL_FORMAT,True,TOOL_FORMAT,
+78,The time of the oldest closed issue is not the same as the time when the 'Regression' label was added to the issue. The agent should have retrieved the event when the label was added to determine the correct date.,OBS_MISREAD,OBS_MISREAD,True,OBS_MISREAD,
+79,"The code provided by MilitaryHistory_Expert is unreasonable, as it is overly hasty. He should investigate step by step instead of attempting to find the solution all at once.",PLAN,PLAN,True,PLAN,
+80,"While obtaining the web link, the expert should download the PDF file and extract the corresponding text. They should not rely on web search to locate specific content within the book.",TOOL_SELECT,TOOL_SELECT,True,TOOL_SELECT,
+81,The code provided by WebDevelopment_Expert is incorrect.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Frozen coding guide treats generic incorrect code as TOOL_FORMAT.
+82,The agent fabricates the content of the website and does not actually verify its contents.,GROUNDING,GROUNDING,True,GROUNDING,
+83,The code is incorrect for the task.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Frozen coding guide treats generic code-incorrect-for-task cases as TOOL_FORMAT.
+84,The answer provided by WebServing_Expert was incorrect.,OTHER,UNMAPPABLE,False,UNMAPPABLE,Only says the answer is incorrect; no failure mechanism is given.
+85,"The CorporateHistory_IPOs_MondayCom_Expert repeatedly writes incorrect code and provides inaccurate information in step 5, leading to a false conclusion.",TOOL_FORMAT,LOOP,False,LOOP,"The reason explicitly says incorrect code was written repeatedly, making repetition/no-progress the distinguishing failure."
+86,"The agent made a mistake in handling the NaN values in the 'Platform' column by dropping all NaN values from the DataFrame. As a result, entries with missing 'Platform' values were removed, leading the code to incorrectly report that no Blu-Ray entries were found in the inventory.",TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Incorrect NaN handling is an implementation/code defect.
+87,"The expert made a factual error. The execution result is Braintree, Massachusetts, and Honolulu, Hawaii, rather than Honolulu, Hawaii, and Quincy, Massachusetts.",GROUNDING,GROUNDING,True,GROUNDING,
+88,"According to the answer, the album Tidal by Fiona Apple did not receive a letter grade from Robert Christgau. However, the Music_Critic_Expert stated that the album Tidal received a grade of B from him.",GROUNDING,GROUNDING,True,GROUNDING,
+89,"To answer the question, the agent should not make any assumptions.",VERIFICATION,VERIFICATION,True,VERIFICATION,
+90,"The agent made a mistake in calculating the total number of wheels for the steam locomotives. The Whyte notation directly represents the number of leading, driving, and trailing wheels on one side of the locomotive. Therefore, the total number of wheels is simply the sum of these numbers, not the sum multiplied by 2.",OTHER,OTHER,True,OTHER,
+91,The expert fails to view the image and hallucinates the notes.,GROUNDING,GROUNDING,True,GROUNDING,
+92,"The agent writes code using pandas, which cannot handle the color data in the Excel file. As a result, the code fails to retrieve the color information from the final position.",TOOL_SELECT,TOOL_SELECT,True,TOOL_SELECT,
+93,"The data provided by the Data_Collection_Expert for the reference works in Life Science and Health Sciences is incorrect or hypothetical, leading to an incorrect calculation of standard deviations and their difference.",GROUNDING,GROUNDING,True,GROUNDING,
+94,The steps to solve this question are completely irrelevant to the question.,PLAN,PLAN,True,PLAN,
+95,"The expert wrote code with bugs multiple times, leading to the exhaustion of the step limits.",LOOP,LOOP,True,LOOP,
+96,The Tickets_Pricing_Expert provides incorrect ticket prices. The expert should take the necessary steps to obtain accurate information. These inaccuracies result in the failure of subsequent processes.,GROUNDING,GROUNDING,True,GROUNDING,
+97,The agent begins providing the full text of the poem without retrieving the text and formatting from websites.,VERIFICATION,VERIFICATION,True,VERIFICATION,
+98,The assistant provides an incorrect plan in response to an incorrect question.,PLAN,PLAN,True,PLAN,
+99,The agent provide the wrong name of the actor,GROUNDING,GROUNDING,True,GROUNDING,
+100,"The price provided by HawaiiRealEstate_Expert is incorrect, causing the error to propagate through subsequent steps to the final output.",GROUNDING,GROUNDING,True,GROUNDING,
+101,The experts incorrectly present the problems.,OTHER,UNMAPPABLE,False,UNMAPPABLE,The statement that the problems were presented incorrectly does not identify a mappable mechanism.
+102,The code provided by WaybackMachine_Expert is not reasonable.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Unreasonable code maps to TOOL_FORMAT under the coding guide's code-defect default.
+103,The code provided by the Debugging_Expert is incorrect and unrelated to the task.,TOOL_FORMAT,PLAN,False,PLAN,"The code is explicitly unrelated to the task, indicating task/goal misalignment rather than merely malformed code."
+104,"The expert didn't import the necessary tables, leading to the exhaustion of the step limits.",TOOL_FORMAT,TOOL_FORMAT,True,TOOL_FORMAT,
+105,The WebServing_Expert failed to retrieve useful information from the paper link.,TOOL_EXEC,TOOL_EXEC,True,TOOL_EXEC,
+106,The agent is approaching the task in the wrong direction. It failed to locate the restaurant's name.,PLAN,PLAN,True,PLAN,
+107,"To solve this problem, a web search approach should be used, as there are no attached files for this task. The error occurred because the required tool was not invoked.",TOOL_SELECT,TOOL_SELECT,True,TOOL_SELECT,
+108,The answer provided by Verification_Expert was incorrect.,OTHER,UNMAPPABLE,False,UNMAPPABLE,Only says the answer is incorrect; no mechanism is stated.
+109,The DFS algorithm is not correctly exploring the possible words on the Boggle board.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Incorrect DFS exploration is an algorithm/code implementation defect.
+110,The answer provided by Clinical_Trial_Data_Analysis_Expert was incorrect.,OTHER,UNMAPPABLE,False,UNMAPPABLE,Only says the answer is incorrect; no mechanism is stated.
+111,"The expert should not suggest manual inspection. Instead, they should use relevant tools or methods to extract the required information. Additionally, too many incorrect codes are being suggested.",TOOL_SELECT,TOOL_SELECT,True,TOOL_SELECT,
+112,"The Vegan_Food_Expert provides information directly without taking the necessary actions, resulting in incorrect information being provided.",VERIFICATION,VERIFICATION,True,VERIFICATION,
+113,The code provided by WikipediaHistory_Expert is incorrect and does not return any useful results.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Incorrect code producing no useful result maps to TOOL_FORMAT.
+114,The expert doesn't take any action to analyze the image but directly reaches the conclusion that the background is the Eiffel Tower.,VERIFICATION,VERIFICATION,True,VERIFICATION,
+115,The agent wrote incorrect code and obtained the wrong result.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,The error is explicitly attributed to incorrect code; wrong result is downstream.
+116,GIS_DataAnalysis_Expert did not directly access the USGS database to verify the ZIP codes. The expert should have independently verified the ZIP codes using the USGS database to ensure the accuracy of the findings.,VERIFICATION,VERIFICATION,True,VERIFICATION,
+117,"The DataAnalysis_Expert generates data to answer the user's question, which is not the correct approach to solving the problem.",GROUNDING,GROUNDING,True,GROUNDING,
+118,"The task description is not well aligned with the question, causing the subsequent steps to deviate from the correct direction and leading to an inaccurate or irrelevant resolution.",PLAN,PLAN,True,PLAN,
+119,"The expert incorrectly identified BaseBagging as the predictor base command that received a bug fix, when, according to the ground truth, it should have been BaseLabelPropagation.",GROUNDING,GROUNDING,True,GROUNDING,
+120,The Movie_Expert provides an incorrect list of Daniel Craig movies with a duration of less than 150 minutes. The expert should take the necessary steps to obtain accurate information. These inaccuracies result in the failure of subsequent processes and exhaust the step limit.,GROUNDING,GROUNDING,True,GROUNDING,
+121,The code is incorrect because it does not import the necessary Python packages.,TOOL_FORMAT,TOOL_FORMAT,True,TOOL_FORMAT,
+122,The code provided by MerriamWebsterWordOfTheDay_Historian_Expert is incorrect. Executing the code did not return the correct information.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Incorrect code that returns wrong information maps to TOOL_FORMAT.
+123,"The expert provided incorrect text in the in-line citation, leading to an error in the comparison. The correct word in the citation that does not match is 'cloak.'",GROUNDING,GROUNDING,True,GROUNDING,
+124,"The calculation incorrectly assumes that Bob's guesses will always match the number of coins in each box, guaranteeing maximum winnings of $30,000. The task specifically asks for the minimum amount Bob can win under an optimal strategy, which requires considering the worst-case scenario.",PLAN,PLAN,True,PLAN,
+125,"The agent should review the page history of the Wikipedia article to obtain the information. Instead, it initiated a search on Bing.",TOOL_SELECT,TOOL_SELECT,True,TOOL_SELECT,
+126,"WebSurfer's inability to reliably access the requested documents resulted in the overall task failure, as the necessary time span data could not be extracted or compared. This underscores the need for enhanced fallback mechanisms and more robust search strategies.",TOOL_EXEC,TOOL_EXEC,True,TOOL_EXEC,
+127,"The Orchestrator should instruct WebSurfer to collect the full list of Daniel Craig's movies on IMDb. Instead, it only displayed 18% of the page, leading the Orchestrator to incorrectly conclude that the movie list was complete.",COORDINATION,OBS_MISREAD,False,OBS_MISREAD,"The Orchestrator observed only 18% of the page but inferred the list was complete: correct observation, wrong inference."
+128,"WebSurfer misinterpreted or failed to retrieve the correct Latin root, leading to confusion in identifying the related Spanish word, thereby derailing subsequent steps.",OBS_MISREAD,OBS_MISREAD,True,OBS_MISREAD,
+129,"The Orchestrator should let the Websurfer scroll down to check more movies. Moreover, there are search filters for keywords related to the runtime of the movie, but the agent fails to recognize based on the OCR. This can be achieved by scrolling down to explore further the page.",COORDINATION,OBS_MISREAD,False,OBS_MISREAD,Failure to recognize filters from OCR is an observation-reading failure; scrolling is the proposed remedy.
+130,"WebSurfer's query is not concise enough to retrieve complete information to answer the original question, which leads to reaching the maximum time limit.",TOOL_FORMAT,TOOL_FORMAT,True,TOOL_FORMAT,
+131,The agent does not verify the information and check whether the highest price of the house is located at Mission Bay. The search result is not accurate.,VERIFICATION,VERIFICATION,True,VERIFICATION,
+132,"The WebSurfer directly reaches a conclusion without performing the correct actions, such as taking a screenshot and extracting the bird species.",VERIFICATION,VERIFICATION,True,VERIFICATION,
+133,"The page retrieved by WebSurfer does not provide relevant information to address the question, causing the Orchestrator to rely on its own assumptions and make a guess.",GROUNDING,TOOL_EXEC,False,UNMAPPABLE,"The retrieved page was irrelevant, but the reason does not establish tool failure or fabricated/unsupported content by WebSurfer."
+134,WebSurfer did not retrieve a list of eateries near Harkness Memorial State Park sorted by distance and operating hours. The keyword it entered was insufficient.,TOOL_FORMAT,TOOL_FORMAT,True,TOOL_FORMAT,
+135,"WebSurfer makes two mistakes in this step, leading to failure. 1. It does not include the '2+ bathrooms' criterion in the search, resulting in invalid results. 2. It directly reaches a wrong conclusion by using intermediate search results.",TOOL_FORMAT,VERIFICATION,False,VERIFICATION,"Although a search criterion was omitted, the decisive stated error is concluding from incomplete/intermediate results without verification."
+136,The key word should include Monterey Bay Aquarium website.,TOOL_FORMAT,TOOL_FORMAT,True,TOOL_FORMAT,
+137,"WebSurfer encountered difficulties in locating and accessing the acknowledgment section of the paper, causing a delay in identifying the NASA award number associated with R.G. Arendt.",TOOL_EXEC,TOOL_EXEC,True,TOOL_EXEC,
+138,The Orchestrator writes incorrect code.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Frozen coding guide treats generic incorrect code as TOOL_FORMAT.
+139,"The Orchestrator should not directly decide to check other criteria. In fact, WebSurfer did not provide a full list of supermarkets in the previous step.",COORDINATION,VERIFICATION,False,VERIFICATION,The Orchestrator moved on without confirming that the supermarket list was complete.
+140,"The agent should provide a transcription of the audio file to extract the page numbers, but it failed to transcribe the audio.",TOOL_EXEC,TOOL_EXEC,True,TOOL_EXEC,
+141,FileSurfer didn't correctly extract the relevant information but directly gave a wrong answer.,GROUNDING,GROUNDING,True,GROUNDING,
+142,"Assistant naviagtes the agents group to a wrong direction - contacting the offices for the result. Instead, the agents should solve the problems by themselves.",COORDINATION,PLAN,False,COORDINATION,"The Assistant misdirected the agent group, an inter-agent orchestration/coordination failure."
+143,"The list of gyms within 5 miles of 400 Main Street, Point Pleasant, WV 25550 is actually not shown in full at step 8. The Orchestrator then decides to search them one by one but does not confirm whether the list is complete.",VERIFICATION,VERIFICATION,True,VERIFICATION,
+144,WebSurfer failed to locate the specific volume in the University of Leicester paper due to incomplete data retrieval from the journal's website and insufficient progress in analyzing the full PDF.,TOOL_EXEC,TOOL_EXEC,True,TOOL_EXEC,
+145,WebSurfer clicks on an irrelevant website and disrupts the task-solving process.,GROUNDING,GROUNDING,True,GROUNDING,
+146,The information it obtains is incorrect.,GROUNDING,GROUNDING,True,GROUNDING,
+147,The agent should recognize that the website has clickable and expandable tabs containing the full rhyme for each flavor.,PLAN,PLAN,True,PLAN,
+148,"The search tool does not return the desired information regarding the passenger count of each train in 2019. Therefore, the train with the highest number of passengers and its scheduled arrival time at Pompano Beach cannot be determined.",TOOL_EXEC,TOOL_EXEC,True,TOOL_EXEC,
+149,The information obtained by WebSurfer is neither reliable nor satisfies the requirements of the Orchestrator.,GROUNDING,GROUNDING,True,GROUNDING,
+150,The searching result is wrong.,GROUNDING,GROUNDING,True,GROUNDING,
+151,The assistant agent makes calculations with factual errors. The density of liquid Freon-12 under the required conditions is not provided. The calculation is based on an approximation of the density.,GROUNDING,GROUNDING,True,GROUNDING,
+152,"When listing the top 10 domestic movies, the assistant omitted 'Demon Slayer: Kimetsu no Yaiba - The Movie: Mugen Train' and included 'Wonder Woman 1984' instead. This led to an incorrect count of common movies between the two lists.",GROUNDING,GROUNDING,True,GROUNDING,
+153,The Orchestrator encountered an error while processing the data.,OTHER,UNMAPPABLE,False,UNMAPPABLE,"An unspecified processing error does not identify whether the cause was tool execution, code, or another mechanism."
+154,It provides incorrect instructions.,COORDINATION,COORDINATION,True,COORDINATION,
+155,The Orchestrator made an error when performing the translation.,OTHER,OTHER,True,OTHER,
+156,The reasoning process is wrong.,PLAN,UNMAPPABLE,False,UNMAPPABLE,'Reasoning process is wrong' is too vague to distinguish planning from other reasoning failures.
+157,The agent didn't find enough information to answer the question but directly gave the answer.,VERIFICATION,VERIFICATION,True,VERIFICATION,
+158,The Orchestrator should count the total number of revisions. The task has not yet been fully completed.,GIVE_UP,GIVE_UP,True,GIVE_UP,
+159,WebSurfer failed to provide useful information and encountered errors during the process.,TOOL_EXEC,TOOL_EXEC,True,TOOL_EXEC,
+160,The retrieved information is not useful.,TOOL_EXEC,TOOL_EXEC,True,TOOL_EXEC,
+161,"The websurfer did not actually enter the location and click the view. Therefore the website keeps on the same page and the same OCR result. If the location is correctly entered, the website link will change.",OTHER,OTHER,True,OTHER,
+162,The search results of WebSurfer did not include the gym 'Avea Pilates' which is near Tompkins Square Park.,TOOL_EXEC,TOOL_EXEC,True,TOOL_EXEC,
+163,It did not return anything useful.,TOOL_EXEC,TOOL_EXEC,True,TOOL_EXEC,
+164,The WebSurfer should find the clickable link to the APOD image for the first week of August 2015 and extract the city name from the image's description.,PLAN,PLAN,True,PLAN,
+165,"WebSurfer returned general and unrelated information due to poorly refined queries and failed to identify the specific version of OpenCV where Mask-RCNN support was added. This failure caused subsequent steps to proceed based on incorrect or incomplete data, leading to the wrong final answer.",TOOL_FORMAT,TOOL_FORMAT,True,TOOL_FORMAT,
+166,The WebSurfer does not click on useful information.,GROUNDING,GROUNDING,True,GROUNDING,
+167,"FileSurfer failed to access the article due to a 404 File Not Found error, leading to an incorrect guess (tricksy) instead of the correct word (fluffy) ",TOOL_EXEC,TOOL_EXEC,True,TOOL_EXEC,
+168,There is no membership information.,OTHER,OTHER,True,OTHER,
+169,"The Orchestrator should instruct WebSurfer to search for hikes on TripAdvisor to verify the ratings and review counts, instead of merely searching the web.",COORDINATION,COORDINATION,True,COORDINATION,
+170,"The WebSurfer should visit TripAdvisor pages for specific trails to verify the number of reviews, average rating, instead it over relys on search results.",VERIFICATION,VERIFICATION,True,VERIFICATION,
+171,"The Orchestrator should instruct WebSurfer to search for the professional history of each board member to determine whether they held C-suite positions before joining Apple's Board. Instead, it repeatedly instructs WebSurfer to scroll on the same page.",COORDINATION,LOOP,False,LOOP,The Orchestrator repeatedly instructed the same scroll action instead of changing strategy; repeated no-progress behavior fits LOOP.
+172,The code is wrong.,TOOL_FORMAT,UNMAPPABLE,False,TOOL_FORMAT,Frozen coding guide treats generic wrong code as TOOL_FORMAT.
+173,The caculation is wrong.,OTHER,OTHER,True,OTHER,
+174,The Orchestrator should not directly draw a conclusion if enough information has not been gathered to answer the query. It should replan to address the query.,VERIFICATION,VERIFICATION,True,VERIFICATION,
+175,"WebSurfer should refer to the list of funds on Fidelity's official website to find the correct answer and should not rely on third-party websites, which may lack comprehensive information.",VERIFICATION,VERIFICATION,True,VERIFICATION,
+176,"The agent provides information about the current roster, but the question asks for the roster as of July 2023. THe agent should search for the roster of Hokkaido Nippon-Ham Fighters in 2023.",PLAN,PLAN,True,PLAN,
+177,The WebSurfer did not provide the correct OCR text for the lyrics of the song 'Human Nature' by Michael Jackson in the bing search results.,TOOL_EXEC,OBS_MISREAD,False,OBS_MISREAD,"The failure concerns incorrect OCR text being provided; absent an explicit OCR-tool crash/failure, this is treated as incorrect reading/extraction."
+178,The instrcution is wrong.,COORDINATION,COORDINATION,True,COORDINATION,
+179,"The Orchestrator should not decide to replan. WebSurfer has already triggered the button for 2020, but the Orchestrator did not give it a chance to click.",COORDINATION,COORDINATION,True,COORDINATION,
+180,It failed to extract useful information from the Issue page.,TOOL_EXEC,TOOL_EXEC,True,TOOL_EXEC,
+181,The WebSurfer did not return the useful information needed to answer the question.,TOOL_EXEC,TOOL_EXEC,True,TOOL_EXEC,
+182,"The Orchestrator should not replan. The answer is in the previous step, while it should try to verify the birthdate of the provided winners one by one.",COORDINATION,VERIFICATION,False,VERIFICATION,The Orchestrator replanned instead of verifying the winners' birthdates one by one.
+183,"WebSurfer's OCR did not correctly extract the required information (the prices of daily and season passes), leading the Orchestrator to think that the required information is not on the current page, when in fact it is.",TOOL_EXEC,OBS_MISREAD,False,TOOL_EXEC,The reason explicitly attributes failure to OCR not correctly extracting information that was present on the page.
