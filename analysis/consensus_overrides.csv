@@ -1,0 +1,26 @@
+row_id,consensus_label,resolution_note
+8,OTHER,"This is a grammatical/content reasoning error, not a task-planning/decomposition failure."
+23,UNMAPPABLE,Only says the answer is incorrect; mechanism cannot be inferred without guessing.
+36,VERIFICATION,The agent concludes without taking evidentiary actions; this is skipped verification rather than premature abandonment.
+38,VERIFICATION,A Verification_Expert failed to detect inaccurate outputs from other agents; the decisive failure is missed verification.
+58,OTHER,Logical reasoning error is not clearly a planning/decomposition failure under the frozen classes.
+65,VERIFICATION,The agent relied on internal knowledge instead of checking current May-2023 information.
+66,VERIFICATION,The agent used an assumed article count instead of obtaining/checking the exact value before calculation.
+73,VERIFICATION,The Verification_Expert failed to question and re-check an anomalous 0% result.
+75,MEMORY,"The agent overlooked an explicit prerequisite from the original query, fitting forgotten/omitted constraint."
+84,UNMAPPABLE,Only says the answer is incorrect; no failure mechanism is given.
+85,LOOP,"The reason explicitly says incorrect code was written repeatedly, making repetition/no-progress the distinguishing failure."
+101,UNMAPPABLE,The statement that the problems were presented incorrectly does not identify a mappable mechanism.
+103,PLAN,"The code is explicitly unrelated to the task, indicating task/goal misalignment rather than merely malformed code."
+108,UNMAPPABLE,Only says the answer is incorrect; no mechanism is stated.
+110,UNMAPPABLE,Only says the answer is incorrect; no mechanism is stated.
+127,OBS_MISREAD,"The Orchestrator observed only 18% of the page but inferred the list was complete: correct observation, wrong inference."
+129,OBS_MISREAD,Failure to recognize filters from OCR is an observation-reading failure; scrolling is the proposed remedy.
+133,UNMAPPABLE,"The retrieved page was irrelevant, but the reason does not establish tool failure or fabricated/unsupported content by WebSurfer."
+135,VERIFICATION,"Although a search criterion was omitted, the decisive stated error is concluding from incomplete/intermediate results without verification."
+139,VERIFICATION,The Orchestrator moved on without confirming that the supermarket list was complete.
+153,UNMAPPABLE,"An unspecified processing error does not identify whether the cause was tool execution, code, or another mechanism."
+156,UNMAPPABLE,'Reasoning process is wrong' is too vague to distinguish planning from other reasoning failures.
+171,LOOP,The Orchestrator repeatedly instructed the same scroll action instead of changing strategy; repeated no-progress behavior fits LOOP.
+177,OBS_MISREAD,"The failure concerns incorrect OCR text being provided; absent an explicit OCR-tool crash/failure, this is treated as incorrect reading/extraction."
+182,VERIFICATION,The Orchestrator replanned instead of verifying the winners' birthdates one by one.
