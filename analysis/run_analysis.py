@@ -5,6 +5,7 @@ Writes: data/work/coded.csv, analysis/RESULTS.md.
 (Figures: analysis/make_figures.py.)
 """
 import json, math, os
+from scipy.stats import binomtest
 import pandas as pd
 import numpy as np
 from scipy.stats import chi2_contingency
@@ -53,24 +54,24 @@ for f,tt in [("data/raw/agenterrorbench/Label/alfworld_labels.json","alfworld"),
                 uni = NATIVE2UNI.get((m,ft), "UNMAPPABLE") if ft else "UNMAPPABLE"
                 rows.append({"dataset":"AgentErrorBench","domain":tt,"llm":t["LLM"],
                              "native":f"{m}.{ft}" if ft else f"{m}.<empty>",
-                             "unified":uni})
+                             "unified":uni,"record_id":t["trajectory_id"],
+                             "cluster_id":"aeb:"+tt+":"+t["trajectory_id"]})
 aeb_coded = pd.DataFrame(rows)
 
-# ---- 2. Who&When: apply primary-analyst coding ----
-import importlib.util
-spec = importlib.util.spec_from_file_location("wc", f"{BASE}/analysis/whowhen_coding.py")
-wc = importlib.util.module_from_spec(spec); spec.loader.exec_module(wc)
+# ---- 2. Who&When: explicit revised analysis labels, originals preserved ----
 ww = pd.read_csv(f"{BASE}/data/work/whowhen_reasons.csv")
-ww["unified"] = ww["row_id"].map(lambda i: wc.CODING[i][0])
-ww["secondary"] = ww["row_id"].map(lambda i: wc.CODING[i][1])
-# Adjudicated consensus overrides (independent second coding + adjudication 2026-09-27):
-# rows where the second coder's label was held over coder 1's.
-_cons = pd.read_csv(f"{BASE}/analysis/consensus_overrides.csv").set_index("row_id")["consensus_label"].to_dict()
-ww["unified"] = ww.apply(lambda r: _cons.get(r["row_id"], r["unified"]), axis=1)
-ww["dataset"]="Who&When"; ww["domain"]="multi-agent"
-ww_coded = ww[["dataset","domain","unified"]].copy()
-ww_coded["native"]="free-text reason (analyst-coded)"
-ww_coded["llm"]="n/a"
+coding = pd.read_csv(f"{BASE}/coding/whowhen_184_coding.csv")
+assert len(ww) == 184 and ww.row_id.is_unique and coding.row_id.is_unique
+ww = ww.merge(coding[["row_id", "mistake_reason", "consensus_label"]], on="row_id", validate="one_to_one", suffixes=("", "_coding"))
+assert ww.mistake_reason.equals(ww.mistake_reason_coding), "Coding/source reason mismatch"
+ww["unified"] = ww.consensus_label
+ww["dataset"] = "Who&When"
+ww["domain"] = "multi-agent"
+ww["native"] = "free-text reason (analyst-coded)"
+ww["llm"] = "n/a"
+ww["record_id"] = ww.row_id.astype(str)
+ww["cluster_id"] = "ww:" + ww.question_ID
+ww_coded = ww[["dataset", "domain", "unified", "native", "llm", "record_id", "cluster_id"]].copy()
 
 coded = pd.concat([aeb_coded, ww_coded], ignore_index=True)
 coded.to_csv(f"{BASE}/data/work/coded.csv", index=False)
@@ -147,7 +148,8 @@ out.append("## H3 / coverage — UNMAPPABLE\n")
 out.append(f"UNMAPPABLE overall: {unm}/{len(coded)} ({unm/len(coded):.1%})")
 aeb_unm=(aeb_coded.unified=="UNMAPPABLE").sum()
 out.append(f"AgentErrorBench native-label UNMAPPABLE: {aeb_unm}/{len(aeb_coded)} ({aeb_unm/len(aeb_coded):.1%})")
-out.append("H3 (>=15% native labels UNMAPPABLE): "+("SUPPORTED" if aeb_unm/len(aeb_coded)>=0.15 else "NOT supported"))
+h3 = binomtest(int(aeb_unm), len(aeb_coded), p=0.15, alternative="greater")
+out.append(f"H3: one-sided exact binomial p={h3.pvalue:.6f}; not supported at alpha=.05")
 out.append("")
 # label-noise audit (RQ3 quantitative)
 out.append("## RQ3 — label-noise audit (AgentErrorBench source data)\n")

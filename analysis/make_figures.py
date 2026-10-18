@@ -22,7 +22,7 @@ coded = pd.read_csv(f"{BASE}/data/work/coded.csv")
 ORDER = ["PLAN", "TOOL_SELECT", "TOOL_FORMAT", "TOOL_EXEC", "OBS_MISREAD",
          "GROUNDING", "VERIFICATION", "MEMORY", "COORDINATION", "LOOP",
          "GIVE_UP", "OTHER"]
-DPI = 200
+DPI = 300
 plt.rcParams.update({
     "font.size": 10, "axes.titlesize": 11, "axes.labelsize": 10,
     "xtick.labelsize": 9, "ytick.labelsize": 9, "legend.fontsize": 9,
@@ -63,7 +63,7 @@ def present(sub, order):
 cats1 = ORDER + ["UNMAPPABLE"]
 groups = ["AgentErrorBench", "Who&When"]
 props = {g: present(coded[coded.dataset == g], cats1) for g in groups}
-fig, ax = plt.subplots(figsize=(10.0, 2.9))
+fig, ax = plt.subplots(figsize=(9.6, 3.2))
 x = np.arange(len(cats1)); w = 0.38
 for i, g in enumerate(groups):
     ax.bar(x + (i - 0.5) * w, [props[g][j] for j in range(len(cats1))],
@@ -72,7 +72,7 @@ ax.set_xticks(x); ax.set_xticklabels(cats1, fontsize=8, rotation=28, ha="right")
 ax.set_ylabel("proportion", fontsize=10)
 ax.legend(frameon=True, fontsize=8, loc="upper right")
 fig.subplots_adjust(left=0.07, right=0.99, top=0.94, bottom=0.26)
-fig.savefig(f"{BASE}/figures/fig1_dist_by_dataset.png"); plt.close(fig)
+fig.savefig(f"{BASE}/figures/fig1_dist_by_dataset.png", bbox_inches="tight", pad_inches=0.15); fig.savefig(f"{BASE}/figures/fig1_dist_by_dataset.pdf", bbox_inches="tight", pad_inches=0.15); plt.close(fig)
 
 # ---- Fig 2: by domain (labeled records) ----
 dom = coded[coded.unified != "UNMAPPABLE"]
@@ -82,10 +82,10 @@ fig, ax = plt.subplots(figsize=(4.0, 4.4))
 grouped_hbar(ax, ORDER, [DOM_LABEL[d] for d in dorder],
              {DOM_LABEL[d]: props[d] for d in dorder},
              {DOM_LABEL[d]: DOM_COLORS[d] for d in dorder},
-             "proportion of domain's failures")
+             "proportion of mapped domain failures")
 ax.set_title("Failure-class distribution by domain", pad=8)
 fig.tight_layout(pad=0.6)
-fig.savefig(f"{BASE}/figures/fig2_dist_by_domain.png"); plt.close(fig)
+fig.savefig(f"{BASE}/figures/fig2_dist_by_domain.png", bbox_inches="tight", pad_inches=0.15); fig.savefig(f"{BASE}/figures/fig2_dist_by_domain.pdf", bbox_inches="tight", pad_inches=0.15); plt.close(fig)
 
 # ---- Fig 3: by model (AgentErrorBench labeled only) ----
 mod = coded[(coded.dataset == "AgentErrorBench") & (coded.unified != "UNMAPPABLE")]
@@ -97,7 +97,7 @@ grouped_hbar(ax, nz, models, props, MODEL_COLORS,
              "proportion of model's labeled failures")
 ax.set_title("Failure-class distribution by model", pad=8)
 fig.tight_layout(pad=0.6)
-fig.savefig(f"{BASE}/figures/fig3_dist_by_model.png"); plt.close(fig)
+fig.savefig(f"{BASE}/figures/fig3_dist_by_model.png", bbox_inches="tight", pad_inches=0.15); fig.savefig(f"{BASE}/figures/fig3_dist_by_model.pdf", bbox_inches="tight", pad_inches=0.15); plt.close(fig)
 
 # ---- Fig 4: empty-label rate by model ----
 aeb = coded[coded.dataset == "AgentErrorBench"]
@@ -105,7 +105,7 @@ rates, ns = [], []
 for m in models:
     s = aeb[aeb.llm == m]; n = len(s)
     rates.append((s["unified"] == "UNMAPPABLE").sum() / n); ns.append(n)
-fig, ax = plt.subplots(figsize=(3.5, 2.3))
+fig, ax = plt.subplots(figsize=(4.0, 4.0))
 y = np.arange(len(models))
 bars = ax.barh(y, rates, height=0.55,
                color=[MODEL_COLORS[m] for m in models], edgecolor="white")
@@ -119,12 +119,12 @@ for b, r in zip(bars, rates):
 ax.set_xlim(0, max(rates) * 1.32)
 ax.set_title("Empty failure labels by model", pad=8)
 fig.subplots_adjust(left=0.34, right=0.86, top=0.88, bottom=0.22)
-fig.savefig(f"{BASE}/figures/fig4_empty_by_model.png"); plt.close(fig)
+fig.savefig(f"{BASE}/figures/fig4_empty_by_model.png", bbox_inches="tight", pad_inches=0.15); fig.savefig(f"{BASE}/figures/fig4_empty_by_model.pdf", bbox_inches="tight", pad_inches=0.15); plt.close(fig)
 
 # ---- Fig 5: native AgentErrorBench label frequencies ----
 nat = aeb["native"].value_counts()
 top = nat.head(14)
-fig, ax = plt.subplots(figsize=(3.5, 3.4))
+fig, ax = plt.subplots(figsize=(4.0, 4.0))
 y = np.arange(len(top))
 bars = ax.barh(y, top.values, height=0.6, color="#3b6ea5", edgecolor="white")
 ax.set_yticks(y)
@@ -137,7 +137,7 @@ for b, v in zip(bars, top.values):
 ax.set_xlim(0, top.values.max() * 1.18)
 ax.set_title("Most frequent native labels", pad=8)
 fig.subplots_adjust(left=0.55, right=0.9, top=0.9, bottom=0.14)
-fig.savefig(f"{BASE}/figures/fig5_native_labels.png"); plt.close(fig)
+fig.savefig(f"{BASE}/figures/fig5_native_labels.png", bbox_inches="tight", pad_inches=0.15); fig.savefig(f"{BASE}/figures/fig5_native_labels.pdf", bbox_inches="tight", pad_inches=0.15); plt.close(fig)
 
 # ---- Fig 6: standardized residuals heatmap — domains as rows,
 # classes as columns; wide & short; no internal title (caption covers it) ----
@@ -149,7 +149,7 @@ dcols = ["alfworld", "webshop", "gaia", "multi-agent"]
 res = pd.DataFrame(res, index=ctd.index, columns=list(ctd.columns))
 res = res[dcols].T
 res.index = [DOM_LABEL[d] for d in dcols]
-fig, ax = plt.subplots(figsize=(9.6, 2.75))
+fig, ax = plt.subplots(figsize=(9.6, 3.2))
 norm = TwoSlopeNorm(vmin=-4.5, vcenter=0, vmax=4.5)
 im = ax.imshow(res.values, cmap="RdBu_r", norm=norm, aspect="auto")
 ax.set_xticks(range(len(res.columns)))
@@ -166,7 +166,7 @@ for spine in ["top", "right", "left", "bottom"]:
     ax.spines[spine].set_visible(False)
 ax.tick_params(left=False, bottom=False)
 fig.subplots_adjust(left=0.22, right=0.88, top=0.96, bottom=0.30)
-fig.savefig(f"{BASE}/figures/fig6_residuals.png"); plt.close(fig)
+fig.savefig(f"{BASE}/figures/fig6_residuals.png", bbox_inches="tight", pad_inches=0.15); fig.savefig(f"{BASE}/figures/fig6_residuals.pdf", bbox_inches="tight", pad_inches=0.15); plt.close(fig)
 
 print("figures written:",
       sorted(os.path.basename(p) for p in

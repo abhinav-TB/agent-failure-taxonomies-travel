@@ -1,0 +1,40 @@
+{
+  "seed": 7,
+  "permutations": 20000,
+  "bootstrap_resamples": 20000,
+  "cluster_definition": "Who&When question_ID; AgentErrorBench trajectory_id (underlying task repeats unresolved)",
+  "h1": {
+    "observed": 160.4762695769648,
+    "p": 4.999750012499375e-05,
+    "exceedances": 0,
+    "clusters": 339,
+    "multiplicities": {
+      "1": 294,
+      "2": 45
+    }
+  },
+  "domain": {
+    "observed": 185.2919170759531,
+    "p": 4.999750012499375e-05,
+    "exceedances": 0,
+    "clusters": 286,
+    "multiplicities": {
+      "1": 250,
+      "2": 36
+    }
+  },
+  "grounding_plurality_including_ties": 0.86655,
+  "grounding_unique_plurality": 0.83465,
+  "bootstrap": {
+    "GROUNDING": {
+      "share": 0.1956521739130435,
+      "low": 0.14136125654450263,
+      "high": 0.25274725274725274
+    },
+    "COORDINATION": {
+      "share": 0.03260869565217391,
+      "low": 0.010752688172043012,
+      "high": 0.060109289617486336
+    }
+  }
+}

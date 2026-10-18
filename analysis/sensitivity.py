@@ -1,24 +1,6 @@
-"""NOTE: this copy reads the 184-row coding table
-at coding/whowhen_184_coding.csv (column coder2_label) instead of the
-working filename; analysis logic is unchanged. See README.md.
-Sensitivity analyses for the contested Who&When coding decisions (round 2).
-
-Reviewer concern: the primary analyst's guide maps bare "code is incorrect"
-reasons to TOOL_FORMAT (37/184 Who&When consensus rows), but the independent
-second coder judged 34 such reasons too vague to map at all (UNMAPPABLE).
-Adjudication held the guide default for 27 of those rows (consensus TOOL_FORMAT)
-and held UNMAPPABLE for 8 rows.
-
-This script reports coder-specific distributions and re-runs the headline
-tests under three alternative labelings:
-  S1 (ambiguous-as-unmappable): rows where coder2=UNMAPPABLE -> UNMAPPABLE;
-      all else = consensus labels.
-  S2 (second-coder labels): all 184 Who&When rows use coder 2's labels.
-  S3 (contested TOOL_FORMAT -> UNMAPPABLE): the 27 TOOL_FORMAT-vs-UNMAPPABLE
-      rows use coder 2's UNMAPPABLE; all else = consensus labels.
-
-For each scenario (+ primary consensus) it recomputes H1 (full and
-labeled-only variants) and the domain test. Writes SENSITIVITY_RESULTS.md.
+"""Retrospective coding sensitivity; raw coder labels are preserved.
+The strict scenario removes all ten retained TOOL_FORMAT explanations.
+This is a coding-rule sensitivity, not a new human annotation.
 """
 import os
 import importlib.util
@@ -86,7 +68,8 @@ scenarios = {
     "primary (consensus)": consensus,
     "S1 coder2-UNMAPPABLE rows->UNMAPPABLE": consensus.mask(ambig, "UNMAPPABLE"),
     "S2 coder-2 labels": c2,
-    "S3 contested TOOL_FORMAT->UNMAPPABLE": consensus.mask(tf_contested, "UNMAPPABLE"),
+    "S3 all retained TOOL_FORMAT->UNMAPPABLE (strict definition)": consensus.mask(consensus == "TOOL_FORMAT", "UNMAPPABLE"),
+    "Historical consensus (before correction)": pd.read_csv(f"{BASE}/coding/whowhen_184_coding.csv").set_index("row_id")["original_consensus_label"],
 }
 
 rows = [run_tests(lab, name) for name, lab in scenarios.items()]
@@ -101,7 +84,7 @@ for cl in allc:
 out.append("")
 out.append(f"Inter-annotator agreement: {agree}/184 = {po:.1%}, Cohen's kappa = {kappa:.3f} (substantial). "
            f"{ambig.sum()} rows have coder2=UNMAPPABLE against a coder-1 substantive class "
-           f"({tf_contested.sum()} of those are TOOL_FORMAT-vs-UNMAPPABLE: bare 'code is incorrect' reasons).\n")
+           f"({tf_contested.sum()} of those are TOOL_FORMAT-vs-UNMAPPABLE: generic or specific implementation/code-defect explanations).\n")
 out.append("## Headline tests under each labeling\n")
 for r in rows:
     out.append(f"### {r['scenario']}")

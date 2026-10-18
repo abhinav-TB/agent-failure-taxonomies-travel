@@ -61,3 +61,14 @@ Not included in this archive.
 - Inter-annotator agreement: 128/184 (69.6%), Cohen's kappa = 0.662; 56
   disagreements adjudicated to consensus (31 held coder 1, 24 coder 2,
   1 a third reading).
+
+## Revised artifacts (2026-10-18)
+
+The historical hashes above describe the original release and remain historical evidence. Current hashes:
+
+- `coding/whowhen_184_coding.csv` SHA256: `f827679bb880c075ab2b9ef1479c7f39eac3aecc01ae82937356d6581112c3c0`
+- `coding/recoding_audit_27.csv` SHA256: `447d209d2cf6db95670e53d29bc3ad1a69d35f1876e88d613572bdcc29f6ed29`
+- `analysis/consensus_overrides.csv` SHA256: `c8e21b82fc039bf15ad61b366d29347b35a03451fed5d7cc2f7a085bb191bc3a`
+- `data/work/coded.csv` SHA256: `b85636c7cf08723541a15f3e9ce3705329cd8514e6b5024398a62a1315ea9041`
+
+Current overrides:52 rows. The original release had25 overrides. Exactly27 further TOOL_FORMAT rows changed to UNMAPPABLE; original coder labels and consensus are preserved. The 56 original coder disagreements now resolve4 to coder1,51 to coder2 and1 to another label. These revised outcomes include a retrospective rule correction, not a new human adjudication round.
