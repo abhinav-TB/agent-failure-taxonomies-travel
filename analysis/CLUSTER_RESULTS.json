@@ -4,7 +4,7 @@
   "bootstrap_resamples": 20000,
   "cluster_definition": "Who&When question_ID; AgentErrorBench trajectory_id (underlying task repeats unresolved)",
   "h1": {
-    "observed": 160.4762695769648,
+    "observed": 167.28917280277122,
     "p": 4.999750012499375e-05,
     "exceedances": 0,
     "clusters": 339,
@@ -14,13 +14,13 @@
     }
   },
   "domain": {
-    "observed": 185.2919170759531,
+    "observed": 189.81123586040442,
     "p": 4.999750012499375e-05,
     "exceedances": 0,
-    "clusters": 286,
+    "clusters": 279,
     "multiplicities": {
-      "1": 250,
-      "2": 36
+      "1": 246,
+      "2": 33
     }
   },
   "grounding_plurality_including_ties": 0.86655,

@@ -17,7 +17,6 @@ Total coded records: 384 (AgentErrorBench: 200, Who&When: 184)
 ### Who&When (n=184)
 - PLAN: 20/184 (10.9%, 95% CI 7.1%–16.2%)
 - TOOL_SELECT: 8/184 (4.3%, 95% CI 2.2%–8.3%)
-- TOOL_FORMAT: 10/184 (5.4%, 95% CI 3.0%–9.7%)
 - TOOL_EXEC: 15/184 (8.2%, 95% CI 5.0%–13.0%)
 - OBS_MISREAD: 7/184 (3.8%, 95% CI 1.9%–7.6%)
 - GROUNDING: 36/184 (19.6%, 95% CI 14.5%–25.9%)
@@ -27,11 +26,11 @@ Total coded records: 384 (AgentErrorBench: 200, Who&When: 184)
 - MEMORY: 1/184 (0.5%, 95% CI 0.1%–3.0%)
 - COORDINATION: 6/184 (3.3%, 95% CI 1.5%–6.9%)
 - OTHER: 10/184 (5.4%, 95% CI 3.0%–9.7%)
-- UNMAPPABLE: 35/184 (19.0%, 95% CI 14.0%–25.3%)
+- UNMAPPABLE: 45/184 (24.5%, 95% CI 18.8%–31.1%)
 
 ## H1 — chi-square: unified category x dataset
 
-chi2=160.48, dof=12, p=4.201e-28
+chi2=167.29, dof=12, p=1.71e-29
 H1 (distributions differ across datasets): SUPPORTED (p<0.05)
 
 Standardized residuals (cells with |r|>2):
@@ -48,24 +47,24 @@ Standardized residuals (cells with |r|>2):
 
 ## RQ4/H1b — chi-square: unified category x domain
 
-chi2=185.29, dof=33, p=4.106e-23
+chi2=189.81, dof=33, p=6.198e-24
 Domain distributions differ: YES (p<0.05)
 
 Top-3 unified classes per domain:
 - alfworld (n=74): PLAN 24, OBS_MISREAD 19, MEMORY 16
 - gaia (n=50): PLAN 26, OBS_MISREAD 9, MEMORY 5
-- multi-agent (n=149): GROUNDING 36, VERIFICATION 28, PLAN 20
+- multi-agent (n=139): GROUNDING 36, VERIFICATION 28, PLAN 20
 - webshop (n=49): PLAN 19, MEMORY 14, OBS_MISREAD 9
 
 - webshop: top1=PLAN (19/49=38.8%)
 - alfworld: top1=PLAN (24/74=32.4%)
 - gaia: top1=PLAN (26/50=52.0%)
-- multi-agent: top1=GROUNDING (36/149=24.2%)
+- multi-agent: top1=GROUNDING (36/139=25.9%)
 H2 (PLAN plurality in web-nav, COORDINATION plurality in multi-agent): NOT supported [webshop top1=PLAN, multi-agent top1=GROUNDING]
 
 ## H3 / coverage — UNMAPPABLE
 
-UNMAPPABLE overall: 62/384 (16.1%)
+UNMAPPABLE overall: 72/384 (18.8%)
 AgentErrorBench native-label UNMAPPABLE: 27/200 (13.5%)
 H3: one-sided exact binomial p=0.752035; not supported at alpha=.05
 

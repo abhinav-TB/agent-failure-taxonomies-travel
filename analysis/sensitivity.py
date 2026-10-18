@@ -1,5 +1,6 @@
 """Retrospective coding sensitivity; raw coder labels are preserved.
-The strict scenario removes all ten retained TOOL_FORMAT explanations.
+The strict primary rule removes all 37 original TOOL_FORMAT consensus assignments;
+the previous broader revision is retained as a sensitivity comparison.
 This is a coding-rule sensitivity, not a new human annotation.
 """
 import os
@@ -65,10 +66,10 @@ def run_tests(ww_labels, name):
     return res
 
 scenarios = {
-    "primary (consensus)": consensus,
+    "primary (strict rule)": consensus,
     "S1 coder2-UNMAPPABLE rows->UNMAPPABLE": consensus.mask(ambig, "UNMAPPABLE"),
     "S2 coder-2 labels": c2,
-    "S3 all retained TOOL_FORMAT->UNMAPPABLE (strict definition)": consensus.mask(consensus == "TOOL_FORMAT", "UNMAPPABLE"),
+    "S3 previous broader revised labels": pd.read_csv(f"{BASE}/coding/whowhen_184_coding.csv").set_index("row_id")["previous_revised_label"],
     "Historical consensus (before correction)": pd.read_csv(f"{BASE}/coding/whowhen_184_coding.csv").set_index("row_id")["original_consensus_label"],
 }
 
@@ -76,7 +77,7 @@ rows = [run_tests(lab, name) for name, lab in scenarios.items()]
 
 out = ["# Sensitivity analyses — contested Who&When coding decisions\n"]
 out.append("## Coder-specific distributions (Who&When, n=184)\n")
-out.append("| class | coder 1 (primary analyst) | coder 2 (independent) | consensus (analysis) |")
+out.append("| class | coder 1 (primary analyst) | coder 2 (independent) | strict primary (analysis) |")
 out.append("|---|---|---|---")
 allc = sorted(set(coder1) | set(c2) | set(consensus))
 for cl in allc:

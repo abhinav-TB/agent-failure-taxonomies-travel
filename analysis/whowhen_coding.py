@@ -1,5 +1,8 @@
-"""Primary-analyst coding of 184 Who&When free-text failure reasons into the unified 13-class scheme.
-Coding guide (applied consistently):
+"""HISTORICAL original coder-1 labels, preserved for reliability and sensitivity.
+These are not current primary analysis labels; run_analysis.py reads the strict
+revised labels from coding/whowhen_184_coding.csv.
+Original coder-1 coding of 184 Who&When free-text reasons:
+Historical coding guide (superseded for current primary analysis):
 - "code is incorrect/buggy" -> TOOL_FORMAT (produced artifact malformed)
 - "plan is incorrect/wrong approach/false premise" -> PLAN
 - "fails to verify / assumes without checking" -> VERIFICATION

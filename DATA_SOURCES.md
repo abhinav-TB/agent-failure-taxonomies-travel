@@ -66,9 +66,11 @@ Not included in this archive.
 
 The historical hashes above describe the original release and remain historical evidence. Current hashes:
 
-- `coding/whowhen_184_coding.csv` SHA256: `f827679bb880c075ab2b9ef1479c7f39eac3aecc01ae82937356d6581112c3c0`
-- `coding/recoding_audit_27.csv` SHA256: `447d209d2cf6db95670e53d29bc3ad1a69d35f1876e88d613572bdcc29f6ed29`
-- `analysis/consensus_overrides.csv` SHA256: `c8e21b82fc039bf15ad61b366d29347b35a03451fed5d7cc2f7a085bb191bc3a`
-- `data/work/coded.csv` SHA256: `b85636c7cf08723541a15f3e9ce3705329cd8514e6b5024398a62a1315ea9041`
+- `coding/whowhen_184_coding.csv` SHA256: `806770d479fcd6bbe6df4e5bdc117fd3dafa9d2b7cc119721b239a0d07095c49`
+- `coding/recoding_audit_27.csv` SHA256: `c36b0340b92a15d8440ac334012422066d8c3f27c4bbe0857d73e827c82132b6`
+- `analysis/consensus_overrides.csv` SHA256: `ba4605dd89a444d2d36579376e8dd7981f88afa1d37a275addf21bc1327100d6`
+- `data/work/coded.csv` SHA256: `aa3200d6a53594c55367232347b553feaeaf9cc76be6cc0f02f30650b02be14c`
 
-Current overrides:52 rows. The original release had25 overrides. Exactly27 further TOOL_FORMAT rows changed to UNMAPPABLE; original coder labels and consensus are preserved. The 56 original coder disagreements now resolve4 to coder1,51 to coder2 and1 to another label. These revised outcomes include a retrospective rule correction, not a new human adjudication round.
+Current primary labels use the strict rule documented in REVISION_NOTES.md and coding/recoding_audit_37.csv. Thirty-seven original consensus TOOL_FORMAT labels are now UNMAPPABLE. Original coder labels, original consensus and previous_revised_label remain preserved; original coding agreement does not measure the reliability of the retrospective primary rule. analysis/consensus_overrides.csv is a historical partial override table; run_analysis.py reads the full coding table directly.
+
+- `coding/recoding_audit_37.csv` SHA256: `d3b079b8fa78cac6fc684fc7341edd34ceef7b51ea7fec9883d23eac2543f8f6`

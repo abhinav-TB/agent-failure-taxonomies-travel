@@ -8,11 +8,11 @@ This repository contains a descriptive audit of 384 released agent-failure annot
 
 | Analysis | N | chi-square | df | p | Cramer's V |
 |---|---:|---:|---:|---:|---:|
-| Dataset, all rows |384|160.47627|12|4.20062e-28|.646457|
-| Dataset, mapped only |322|158.92614|11|2.22072e-28|.702538|
-| Domain, mapped only |322|185.29192|33|4.10612e-23|.437965|
+| Dataset, all rows |384|167.28917|12|1.71022e-29|.660037|
+| Dataset, mapped only |312|161.37669|11|6.98044e-29|.719189|
+| Domain, mapped only |312|189.81124|33|6.19835e-24|.450322|
 
-Who&When: GROUNDING36 (19.6%), TOOL_FORMAT10 (5.4%), UNMAPPABLE35 (19.0%). The prior 37 TOOL_FORMAT /8 UNMAPPABLE counts are historical. The 27-row rule correction, reasons and original labels are retained. See [revision notes](REVISION_NOTES.md) for evidence limits, strict coding sensitivity and cluster assumptions.
+The strict primary rule requires explicit evidence of malformed call syntax, argument structure, or a schema violation for TOOL_FORMAT. Who&When has GROUNDING36 (19.6%), TOOL_FORMAT0, and UNMAPPABLE45 (24.5%). The 37 original TOOL_FORMAT consensus assignments were conservatively recoded as UNMAPPABLE; original coder labels, original consensus, and the previous broader revision are preserved. These are retrospective rule corrections, not a new independent human annotation round. The earlier broader revision had TOOL_FORMAT10 and UNMAPPABLE35. Original second-coder labels have UNMAPPABLE34; the exact unmappable share is coding-sensitive. See [revision notes](REVISION_NOTES.md).
 
 ## Reproduce
 
@@ -37,7 +37,7 @@ The resampling scripts use seed7, plus-one Monte Carlo p-values, 100000 row perm
 ## Files
 
 - coding/whowhen_184_coding.csv: original coder labels, original consensus and corrected labels/notes.
-- coding/recoding_audit_27.csv: source-linked audit of exactly 27 changes.
+- coding/recoding_audit_37.csv: complete strict-rule audit. coding/recoding_audit_27.csv preserves the earlier partial correction.
 - data/raw/ and data/work/: released snapshots and generated machine-readable coded rows with cluster IDs.
 - analysis/: scripts, mapping and generated results/validation.
 - figures/: regenerated vectorPDF and 300dpiPNG outputs.
@@ -50,4 +50,4 @@ The resampling scripts use seed7, plus-one Monte Carlo p-values, 100000 row perm
 
 [Zenodo v1.1](https://doi.org/10.5281/zenodo.23072906) preserves the earlier preprint and computations (H1=192.53). It must not be cited as a matching archive of this revision. The current complete materials are packaged as Supplemental Data S1 for journal submission. A new Zenodo version can archive this exact revision later; no new DOI is claimed here. Cite the specific version you used and the upstream datasets/papers.
 
-Original analysis artifacts: MIT. Manuscript: CC BY4.0. Third-party source material retains upstream terms; the Who&When page supplied no explicit dataset license. See LICENSE.md rather than assuming MIT applies to the underlying data.
+Original analysis artifacts: MIT. Third-party source material retains upstream terms; the Who&When page supplied no explicit dataset license. See LICENSE.md rather than assuming MIT applies to the underlying data.

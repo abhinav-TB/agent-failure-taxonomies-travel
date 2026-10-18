@@ -82,10 +82,10 @@ obs, df_, p_perm, ge = perm_p(coded["dataset"], coded["unified"])
 out.append(f"## H1 — unified x dataset (n=384)\n- asymptotic: chi2={chi2:.2f}, df={dof}, p={p_asymp:.3g}")
 out.append(f"- permutation: chi2={obs:.2f}, df={df_}, p_perm={p_perm:.3g} "
            f"({ge}/100000 permutations >= observed)")
-assert abs(chi2 - 160.48) < 0.05, f"H1 replication failed: {chi2}"
+assert abs(chi2 - 167.29) < 0.05, f"H1 replication failed: {chi2}"
 out.append("")
 
-# H1 labeled-only variant (excl. UNMAPPABLE, n=322)
+# H1 labeled-only variant (excl. UNMAPPABLE, n=312)
 lab = coded[coded.unified != "UNMAPPABLE"].copy()
 ctl = pd.crosstab(lab["unified"], lab["dataset"])
 chi2l, p_asympl, dofl, _ = chi2_contingency(ctl)
@@ -93,10 +93,10 @@ obsl, df_l, p_perml, gel = perm_p(lab["dataset"], lab["unified"])
 out.append(f"## H1 (labeled-only) — unified x dataset (n={len(lab)})\n- asymptotic: chi2={chi2l:.2f}, df={dofl}, p={p_asympl:.3g}")
 out.append(f"- permutation: chi2={obsl:.2f}, df={df_l}, p_perm={p_perml:.3g} "
            f"({gel}/100000 permutations >= observed)")
-assert abs(chi2l - 158.93) < 0.05, f"H1 labeled-only replication failed: {chi2l}"
+assert abs(chi2l - 161.38) < 0.05, f"H1 labeled-only replication failed: {chi2l}"
 out.append("")
 
-# Domain: unified x domain, excluding UNMAPPABLE (n=322)
+# Domain: unified x domain, excluding UNMAPPABLE (n=312)
 dom = coded[coded.unified != "UNMAPPABLE"].copy()
 ctd = pd.crosstab(dom["unified"], dom["domain"])
 chi2d, pd_asymp, dofd, _ = chi2_contingency(ctd)
@@ -104,7 +104,7 @@ obsd, dfd_, pd_perm, ged = perm_p(dom["domain"], dom["unified"])
 out.append(f"## Domain — unified x domain (n={len(dom)})\n- asymptotic: chi2={chi2d:.2f}, df={dofd}, p={pd_asymp:.3g}")
 out.append(f"- permutation: chi2={obsd:.2f}, df={dfd_}, p_perm={pd_perm:.3g} "
            f"({ged}/100000 permutations >= observed)")
-assert abs(chi2d - 185.29) < 0.05, f"domain replication failed: {chi2d}"
+assert abs(chi2d - 189.81) < 0.05, f"domain replication failed: {chi2d}"
 out.append("")
 
 # Model: unified x llm on AgentErrorBench labeled records only

@@ -8,15 +8,15 @@ from scipy.stats import chi2_contingency, binomtest
 base=Path(__file__).resolve().parents[1]
 c=pd.read_csv(base/'coding/whowhen_184_coding.csv')
 r=pd.read_csv(base/'data/work/whowhen_reasons.csv')
-a=pd.read_csv(base/'coding/recoding_audit_27.csv')
+a=pd.read_csv(base/'coding/recoding_audit_37.csv')
 d=pd.read_csv(base/'data/work/coded.csv')
 assert c.row_id.tolist()==r.row_id.tolist()==list(range(184))
 assert c.mistake_reason.equals(r.mistake_reason)
 changed=c[c.consensus_label!=c.original_consensus_label]
-assert len(changed)==27 and changed.row_id.tolist()==a.row_id.tolist()
+assert len(changed)==37 and changed.row_id.tolist()==a.row_id.tolist()
 assert (changed.original_consensus_label=='TOOL_FORMAT').all()
 assert (changed.consensus_label=='UNMAPPABLE').all()
-assert (changed.coder2_label=='UNMAPPABLE').all()
+assert (c.loc[c.previous_revised_label.ne(c.original_consensus_label),'coder2_label']=='UNMAPPABLE').all()
 assert c[['coder1_label','coder2_label']].notna().all().all()
 assert len(d)==384 and d.cluster_id.notna().all()
 w=d[d.dataset=='Who&When']
@@ -38,6 +38,6 @@ for label,frame,group in [('h1',d,'dataset'),('mapped',d[d.unified!='UNMAPPABLE'
     out['checks'][label]=dict(n=len(frame),chi2=x,p=p,df=df,V=math.sqrt(x/(table.sum()*min(table.shape[0]-1,table.shape[1]-1))))
 out['h3_p']=binomtest(27,200,p=.15,alternative='greater').pvalue
 out['sha256']={str(p.relative_to(base)):hashlib.sha256(p.read_bytes()).hexdigest()
-               for p in [base/'coding/whowhen_184_coding.csv',base/'coding/recoding_audit_27.csv',base/'data/work/whowhen_reasons.csv']}
+               for p in [base/'coding/whowhen_184_coding.csv',base/'coding/recoding_audit_37.csv',base/'data/work/whowhen_reasons.csv']}
 (base/'analysis/VALIDATION.json').write_text(json.dumps(out,indent=2)+'\n')
 print(json.dumps(out,indent=2))
