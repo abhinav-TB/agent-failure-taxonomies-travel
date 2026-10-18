@@ -16,3 +16,7 @@ Removed unsupported 24-source synthesis claim; preserved historical plan unchang
 
 ## Archival boundary
 Zenodo 10.5281/zenodo.23072906 is historical v1.1. It has not been silently replaced and does not reproduce this revision. This revision's complete supplement is provided as Supplemental Data S1 with the manuscript, satisfying the journal's supplemental-data route. A new Zenodo version/DOI is an optional additional archival step; cite its actual DOI only after deposition. No existing Zenodo record has been edited by this workflow.
+
+## Disclosure wording update
+
+Named AI products/models were removed at the author's request. Generic AI assistance and the audit trail remain disclosed. The journal requires accurate tool identification before submission; this edit does not certify compliance with that requirement.
