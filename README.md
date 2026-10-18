@@ -14,6 +14,10 @@ This repository contains a descriptive audit of 384 released agent-failure annot
 
 The strict primary rule requires explicit evidence of malformed call syntax, argument structure, or a schema violation for TOOL_FORMAT. Who&When has GROUNDING36 (19.6%), TOOL_FORMAT0, and UNMAPPABLE45 (24.5%). The 37 original TOOL_FORMAT consensus assignments were conservatively recoded as UNMAPPABLE; original coder labels, original consensus, and the previous broader revision are preserved. These are retrospective rule corrections, not a new independent human annotation round. The earlier broader revision had TOOL_FORMAT10 and UNMAPPABLE35. Original second-coder labels have UNMAPPABLE34; the exact unmappable share is coding-sensitive. See [revision notes](REVISION_NOTES.md).
 
+## Mapping coverage
+
+All384 records are accounted for. Substantive coverage is173/200(86.5%) for AgentErrorBench and139/184(75.5%) for Who&When, or312/384(81.25%) overall. All observed nonempty normalized AgentErrorBench native labels have explicit crosswalks. Its vocabulary crosswalk reaches only7 of13 substantive classes; zeros in the other classes do not establish absent mechanisms. See analysis/MAPPING_COVERAGE.md and its machine-readable tables. All45 unresolved reasons are enumerated, not forced into residual classes.
+
 ## Reproduce
 
 Run the entire sequence with `python3 analysis/reproduce_all.py`, or run the steps below individually.
@@ -25,6 +29,7 @@ python3 -m pip install -r requirements.txt
 python3 analysis/count_taxonomy.py
 python3 analysis/run_analysis.py
 python3 analysis/verify_release.py
+python3 analysis/coverage_audit.py
 python3 analysis/sensitivity.py
 python3 analysis/permutation_check.py
 python3 analysis/cluster_analysis.py

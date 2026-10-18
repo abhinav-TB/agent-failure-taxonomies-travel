@@ -1,0 +1,23 @@
+native,unified,n,mapping_status
+action.<empty>,UNMAPPABLE,10,empty native label
+action.invalid_action,TOOL_FORMAT,1,explicit crosswalk
+action.misalignment,TOOL_SELECT,7,explicit crosswalk
+action.parameter_error,TOOL_FORMAT,4,explicit crosswalk
+memory.<empty>,UNMAPPABLE,4,empty native label
+memory.hallucination,MEMORY,12,explicit crosswalk
+memory.memory_retrieval_failure,MEMORY,2,explicit crosswalk
+memory.over_simplification,MEMORY,20,explicit crosswalk
+planning.<empty>,UNMAPPABLE,9,empty native label
+planning.constraint_ignorance,PLAN,13,explicit crosswalk
+planning.impossible_action,PLAN,10,explicit crosswalk
+planning.inefficient_plan,PLAN,46,explicit crosswalk
+reflection.<empty>,UNMAPPABLE,2,empty native label
+reflection.causal_misattribution,OBS_MISREAD,5,explicit crosswalk
+reflection.hallucination,MEMORY,1,explicit crosswalk
+reflection.outcome_misinterpretation,OBS_MISREAD,12,explicit crosswalk
+reflection.progress_misjudge,OBS_MISREAD,20,explicit crosswalk
+system.<empty>,UNMAPPABLE,2,empty native label
+system.environment_error,TOOL_EXEC,7,explicit crosswalk
+system.llm_limit,TOOL_EXEC,1,explicit crosswalk
+system.step_limit,OTHER,8,explicit crosswalk
+system.tool_execution_error,TOOL_EXEC,4,explicit crosswalk

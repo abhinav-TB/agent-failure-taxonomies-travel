@@ -1,0 +1,14 @@
+unified,aeb_explicit_native_crosswalk,aeb_observed,whowhen_observed
+PLAN,True,69,20
+TOOL_SELECT,True,7,8
+TOOL_FORMAT,True,5,0
+TOOL_EXEC,True,12,15
+OBS_MISREAD,True,37,7
+GROUNDING,False,0,36
+NO_RECOVERY,False,0,0
+LOOP,False,0,5
+GIVE_UP,False,0,3
+VERIFICATION,False,0,28
+MEMORY,True,35,1
+COORDINATION,False,0,6
+OTHER,True,8,10
