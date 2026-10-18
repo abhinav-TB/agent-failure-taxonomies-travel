@@ -41,7 +41,7 @@ The resampling scripts use seed7, plus-one Monte Carlo p-values, 100000 row perm
 - data/raw/ and data/work/: released snapshots and generated machine-readable coded rows with cluster IDs.
 - analysis/: scripts, mapping and generated results/validation.
 - figures/: regenerated vectorPDF and 300dpiPNG outputs.
-- manuscript/: synchronized TeX, bibliography, six sequential figures and current manuscript PDF.
+- Manuscript files are maintained separately and are not distributed in this repository.
 - PREREGISTRATION.md: historical author-provided plan, preserved unchanged. New robustness analyses are retrospective.
 - SCHEME_PROVENANCE.md: operational-scheme provenance limits; no unsupported 24-source synthesis claim.
 - DATA_SOURCES.md and LICENSE.md: upstream source hashes and rights.
