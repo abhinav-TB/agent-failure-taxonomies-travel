@@ -52,7 +52,7 @@ def grouped_hbar(ax, categories, groups, props, colors, xlabel):
     ax.set_yticklabels(categories, fontsize=9)
     ax.set_xlabel(xlabel)
     ax.invert_yaxis()
-    ax.legend(frameon=True, facecolor="white", framealpha=0.9, edgecolor="0.8", loc="lower right", ncols=1)
+    ax.legend(frameon=True, facecolor="white", framealpha=0.9, edgecolor="0.8", loc="upper center", bbox_to_anchor=(0.5, -0.16), ncols=1)
     ax.grid(axis="x", alpha=0.25, linestyle="--")
 
 def present(sub, order):
@@ -78,7 +78,7 @@ fig.savefig(f"{BASE}/figures/fig1_dist_by_dataset.png", bbox_inches="tight", pad
 dom = coded[coded.unified != "UNMAPPABLE"]
 dorder = ["alfworld", "webshop", "gaia", "multi-agent"]
 props = {d: present(dom[dom.domain == d], ORDER) for d in dorder}
-fig, ax = plt.subplots(figsize=(4.0, 4.4))
+fig, ax = plt.subplots(figsize=(4.0, 5.0))
 grouped_hbar(ax, ORDER, [DOM_LABEL[d] for d in dorder],
              {DOM_LABEL[d]: props[d] for d in dorder},
              {DOM_LABEL[d]: DOM_COLORS[d] for d in dorder},
@@ -92,7 +92,7 @@ mod = coded[(coded.dataset == "AgentErrorBench") & (coded.unified != "UNMAPPABLE
 models = ["GPT-4o", "Qwen3-8B", "Llama3.3-70B-Turbo"]
 nz = [c for c in ORDER if (mod["unified"] == c).any()]
 props = {m: present(mod[mod.llm == m], nz) for m in models}
-fig, ax = plt.subplots(figsize=(4.0, 3.6))
+fig, ax = plt.subplots(figsize=(4.0, 4.6))
 grouped_hbar(ax, nz, models, props, MODEL_COLORS,
              "proportion of model's labeled failures")
 ax.set_title("Failure-class distribution by model", pad=8)
@@ -150,7 +150,8 @@ res = pd.DataFrame(res, index=ctd.index, columns=list(ctd.columns))
 res = res[dcols].T
 res.index = [DOM_LABEL[d] for d in dcols]
 fig, ax = plt.subplots(figsize=(9.6, 3.2))
-norm = TwoSlopeNorm(vmin=-4.5, vcenter=0, vmax=4.5)
+limit = max(1.0, float(np.ceil(np.abs(res.values).max())))
+norm = TwoSlopeNorm(vmin=-limit, vcenter=0, vmax=limit)
 im = ax.imshow(res.values, cmap="RdBu_r", norm=norm, aspect="auto")
 ax.set_xticks(range(len(res.columns)))
 ax.set_xticklabels(res.columns, fontsize=9, rotation=28, ha="right")
@@ -161,7 +162,8 @@ for i in range(res.shape[0]):
         ax.text(j, i, f"{v:+.1f}", ha="center", va="center", fontsize=8,
                 color="white" if abs(v) > 2.6 else "black")
 cbar = fig.colorbar(im, ax=ax, shrink=0.9, pad=0.015)
-cbar.set_label("standardized residual", fontsize=9)
+cbar.set_ticks(np.linspace(-limit, limit, 5))
+cbar.set_label("Pearson residual", fontsize=9)
 for spine in ["top", "right", "left", "bottom"]:
     ax.spines[spine].set_visible(False)
 ax.tick_params(left=False, bottom=False)
