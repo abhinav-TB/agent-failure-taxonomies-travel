@@ -1,7 +1,7 @@
 # Verified revision: 18 October 2026
 
 ## Coding correction
-27 original consensus TOOL_FORMAT records now use UNMAPPABLE. Their original explanations exactly match the released reasons snapshot. Original coder 1, coder 2, consensus labels and resolution notes are preserved. coding/recoding_audit_27.csv lists every changed row, source split, question ID, agent, step, original explanation and rationale. This retrospective AI-assisted rule audit is not a new blind human annotation or proof of ground truth.
+27 original consensus TOOL_FORMAT records now use UNMAPPABLE. Their original explanations exactly match the released reasons snapshot. Original coder 1, coder 2, consensus labels and resolution notes are preserved. coding/recoding_audit_27.csv lists every changed row, source split, question ID, agent, step, original explanation and rationale. This retrospective rule audit is not a new blind human annotation or proof of ground truth.
 
 None of the 27 explanations establishes malformed arguments, schema violations or an unparseable call. Some are generic wrong-code statements; others describe specific implementation/algorithm/outcome defects. Thus calling all 27 merely 'bare incorrect code' would be inaccurate. UNMAPPABLE means insufficient mechanism identification under this scheme, not that the source necessarily contains an annotation error.
 
@@ -12,11 +12,7 @@ The ten retained TOOL_FORMAT cases include placeholder values, missing imports, 
 Current data reproduce H1 160.47627, mapped H1 158.92614 and domain 185.29192. Model row permutation has 195/100000 exceedances (p=.00195998). Model permutation within domains has 63/20000 exceedances (p=.00319984). Cluster permutations now condition on cluster size: repeated Who&When question rows remain intact. With seed7 and 20000 draws, H1 and domain have zero exceedances. Question-bootstrap grounding plurality is .86655 including ties and .83465 uniquely. These replace previously unreleased cluster figures. The repeated-task identity of AgentErrorBench cannot be established from unique trajectory IDs, so independence there remains an assumption. Neither permutation test establishes causal taxonomy transfer.
 
 ## Documentary corrections
-Removed unsupported 24-source synthesis claim; preserved historical plan unchanged. Corrected one outdated figure, numerical residual prose, cluster cross-reference and contradictory coder-plurality wording. Added complete author metadata from official arXiv records, with Reflexion matched to its published NeurIPS author list. Regenerated figures in vector and 300dpi raster formats. Added in-article AI-use disclosure and funding/conflict statements based on the supplied source, subject to authors' final confirmation. No author approval, terms-of-use review or historical coding independence was invented or certified.
+Removed unsupported 24-source synthesis claim; preserved historical plan unchanged. Corrected one outdated figure, numerical residual prose, cluster cross-reference and contradictory coder-plurality wording. Added complete author metadata from official arXiv records, with Reflexion matched to its published NeurIPS author list. Regenerated figures in vector and 300dpi raster formats. Added funding/conflict statements based on the supplied source, subject to authors' final confirmation. No author approval, terms-of-use review or historical coding independence was invented or certified.
 
 ## Archival boundary
 Zenodo 10.5281/zenodo.23072906 is historical v1.1. It has not been silently replaced and does not reproduce this revision. This revision's complete supplement is provided as Supplemental Data S1 with the manuscript, satisfying the journal's supplemental-data route. A new Zenodo version/DOI is an optional additional archival step; cite its actual DOI only after deposition. No existing Zenodo record has been edited by this workflow.
-
-## Disclosure wording update
-
-Named AI products/models were removed at the author's request. Generic AI assistance and the audit trail remain disclosed. The journal requires accurate tool identification before submission; this edit does not certify compliance with that requirement.

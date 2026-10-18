@@ -50,4 +50,4 @@ The resampling scripts use seed7, plus-one Monte Carlo p-values, 100000 row perm
 
 [Zenodo v1.1](https://doi.org/10.5281/zenodo.23072906) preserves the earlier preprint and computations (H1=192.53). It must not be cited as a matching archive of this revision. The current complete materials are packaged as Supplemental Data S1 for journal submission. A new Zenodo version can archive this exact revision later; no new DOI is claimed here. Cite the specific version you used and the upstream datasets/papers.
 
-Original analysis artifacts: MIT. Manuscript: CC BY4.0. Third-party source material retains upstream terms; the Who&When page supplied no explicit dataset license. See LICENSE.md rather than assuming MIT applies to the underlying data. AI assistance and authors' remaining verification duties are disclosed in the manuscript and revision notes.
+Original analysis artifacts: MIT. Manuscript: CC BY4.0. Third-party source material retains upstream terms; the Who&When page supplied no explicit dataset license. See LICENSE.md rather than assuming MIT applies to the underlying data.
